@@ -12,8 +12,8 @@ After clone repository, and check versions from tools, install project using `np
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files. Project only works if 3itTestSpringBoot project are run.
-Make sure u clone and run backend project: https://github.com/jpparedes-git/3itTestSpringBoot.git
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files. Project only works if [3iTestSpringBoot](https://github.com/jpparedes-git/3itTestSpringBoot.git) project are run.
+Make sure u clone and run backend project.
 
 ## Running unit tests
 
