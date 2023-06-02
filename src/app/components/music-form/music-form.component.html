@@ -1,0 +1,36 @@
+<div class="container" style="margin-top: 5%;">
+
+    <div class="container d-flex justify-content-center align-items-center">
+      <h2>Encuesta</h2>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Estilo musical</label>
+            <select required class="form-control" id="exampleFormControlSelect1" [(ngModel)]="music" [ngModelOptions]="{standalone: true}">
+              <option *ngFor="let music of musics" [ngValue]="music">
+                {{music.name}}
+              </option> 
+            </select>
+          </div>
+        
+
+        <div class="form-group">
+          <label>Email</label>
+          <input
+            type="text"
+            formControlName="email"
+            class="form-control"
+            [(ngModel)]="user.email"
+            placeholder="name@example.com"
+            [ngClass]="{ 'is-invalid': f['email'].errors }"
+          />
+          <div *ngIf="f['email'].errors" class="invalid-feedback">
+            <div *ngIf="f['email'].errors['required']">Email is required</div>
+            <div *ngIf="f['email'].errors['email']">Email is invalid</div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Votar</button>
+      </form>
+</div>

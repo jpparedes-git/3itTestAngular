@@ -1,0 +1,32 @@
+<div class="container" style="margin-top: 2%;">
+    <h2>Resultados encuesta</h2>
+    {{currentDate | date: 'dd MMM yyyy hh:mm:ss a'}}
+</div>
+
+<div class="container">
+  <div class="chart-container">
+    <canvas  id="MyChart" >{{ chart }}</canvas>
+  </div>
+</div>
+
+<div class="container" style="margin-top: 2%;">
+    <h2>Detalle votos</h2>
+    <div class="card my-4">
+      <div class="card-body">
+        <table class="table table-bordered table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Estilo votado</th>
+              <th scope="col">Usuario</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let response of responses">
+              <td>{{ response.music.name }}</td>
+              <td>{{ response.user.email }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
