@@ -24,7 +24,6 @@ export class ResponseListComponent implements OnInit {
   
   constructor(private responseService: ResponseServiceService,
     private musicService : MusicServiceService){
-
   }
 
   ngOnInit() {
@@ -32,11 +31,9 @@ export class ResponseListComponent implements OnInit {
       this.responses = data;
       this.findMusics();
     });
-
   }
 
   findMusics(){
-    console.log("countVotes init");
     this.musicService.findAll().subscribe(data => {
       this.musics = data;
       this.countVotesPerMusic();
@@ -44,12 +41,8 @@ export class ResponseListComponent implements OnInit {
   }
 
   async countVotesPerMusic(){
-    console.log("countVotesPer Music musics "+this.musics);
-
     this.musics.forEach(element => {
-      console.log("countVotesPer Music="+element);
       this.responseService.findByMusic(element).subscribe(data => {
-        console.log("countVotesPer Music id="+element.id+",name="+element.name);
         this.map.set(element,data.length);
       });
     });
@@ -59,8 +52,6 @@ export class ResponseListComponent implements OnInit {
   }
 
   generateChart(){
-    console.log("generate chartt pa map="+ this.map.values());
-
     for(let key of this.map.keys()){
       this.genres.push(key.name);
     }

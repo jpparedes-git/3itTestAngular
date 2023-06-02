@@ -54,7 +54,6 @@ export class MusicFormComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log("submit = user:"+this.music.id);
     if (this.form.invalid) {
       this.formError();
       return;
@@ -66,20 +65,10 @@ export class MusicFormComponent implements OnInit {
           this.voteSuccess();
          }
          else{
-          console.log("id null result");
             this.emailOnUse();
          }
-         this.user = new User("","");
        },
        (error : HttpErrorResponse) => this.errorAlert());
-  }
-
-  getMusicById(musicId : String){
-    return this.musicService.getMusic(musicId).subscribe(result =>
-      {
-        this.music = new Music(result.id,result.name);
-        console.log(this.music);
-      });
   }
 
   postResponse(){
@@ -99,7 +88,7 @@ export class MusicFormComponent implements OnInit {
   }
 
   formError() {
-    Swal.fire('Rellene todos los campos o verifique los campos');
+    Swal.fire('Rellene o verifique los campos');
   }
 
   emailOnUse() {
@@ -114,14 +103,13 @@ export class MusicFormComponent implements OnInit {
       if (result.value) {
         this.gotoResulsts();
       } else if (result.dismiss === Swal.DismissReason.cancel) {
-        
       }
     });
   }
 
   voteSuccess() {
     Swal.fire({
-      title: 'Gracias por votar padre',
+      title: 'Gracias por votar',
       text: 'Echa un vistazo a los resultados',
       icon: 'success',
       confirmButtonText: 'Ver votaciones',
